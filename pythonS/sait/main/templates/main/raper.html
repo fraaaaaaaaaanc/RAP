@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Raper
+{% endblock %}
+
+{% block content %}
+    <img border="3px" src="{{ one.photo.url }}" width="300" height="311" align="left">
+    <div>
+        <p> &nbspИмя: {{ one.name }} </p>
+        <p> &nbspРейтинг: {{ one.rating }}</p>
+        <p> &nbspДата рождения: {{ one.data }}</p>
+        <p> &nbspИнформация: {{one.description}}</p>
+    </div>
+    <a class="btn btn-primary" type="button" href="{% url 'main:list_rap'%}">Назад</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Список реперов
+{% endblock %}
+
+{% block poisk %}
+    <form action="{% url 'main:list_rap' %}"  class="d-flex">
+        <input  class="form-control me-2" type="search" placeholder="search" aria-label="search" name="search">
+        <button class="btn btn-outline-success" type="submit" class="btn btn-success">Поиск</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <center><h1>Cписок реперов</h1></center>
+    <div>
+        {% if rap %}
+            {% for el in rap %}
+                <div class="alert alert-primary">
+                    <h4><a href="{% url 'main:raper' el.id%}">{{ el.name }}</a></h4>
+                    <p>Рейтинг: {{ el.rating }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>Живых реперов нет</h2>
+        {% endif %}
+    </div>
+{% endblock %}
